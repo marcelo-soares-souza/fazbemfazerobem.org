@@ -15,6 +15,7 @@
         <tr>
           <th>Nome</th>
           <th>CNPJ</th>
+          <th>Responsável</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -24,6 +25,7 @@
         <tr>
           <td><%= link_to entidade.nome, entidade_path(entidade) %></td>
           <td><%= entidade.cnpj %></td>
+          <td><%= entidade.user.nome %></td>
           <td>
             <%= link_to 'Show', entidade, :class => 'btn btn-mini btn-info' %>
             <%= link_to 'Edit', edit_entidade_path(entidade), :class => 'btn btn-mini btn-warning' %>

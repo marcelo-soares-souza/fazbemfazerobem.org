@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :nome, :presence => true, :uniqueness => { :case_sensitive => false } 
+
+  has_many :entidades
 end
