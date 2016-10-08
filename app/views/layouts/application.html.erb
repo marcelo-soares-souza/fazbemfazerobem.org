@@ -23,13 +23,20 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Sobre</a>
         </li>
-        <li class="nav-item">
-          <% if current_user %>
-            <%= link_to('Sair (' + current_user.email + ')', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
-          <% else %>
-            <%= link_to('Entrar', new_user_session_path, :class => "nav-link") %>
+        <% if current_user %>
+          <% if current_user.admin? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/">Usuários</a>
+            </li>
           <% end %>
-        </li>
+          <li class="nav-item">
+            <%= link_to('Sair (' + current_user.nome + ')', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
+          </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to('Entrar', new_user_session_path, :class => "nav-link") %>
+            </li>
+          <% end %>
       </ul>
     </nav>
 
