@@ -1,0 +1,40 @@
+<% if ! @entidades.empty? %>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Todas", entidades_path, :class => "nav-link active" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Cadastrar', new_entidade_path, :class => "nav-link" %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active"><br/>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CNPJ</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @entidades.each do |entidade| %>
+        <tr>
+          <td><%= link_to entidade.nome, entidade_path(entidade) %></td>
+          <td><%= entidade.cnpj %></td>
+          <td>
+            <%= link_to 'Show', entidade, :class => 'btn btn-mini btn-info' %>
+            <%= link_to 'Edit', edit_entidade_path(entidade), :class => 'btn btn-mini btn-warning' %>
+            <%= link_to 'Destroy', entidade, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-mini btn-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% else %>
+  <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_entidade_path %></h3>
+<% end %>

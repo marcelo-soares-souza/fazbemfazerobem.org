@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @entidade.nome %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @entidade.cnpj %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @entidade.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_entidade_path(@entidade) %> |
+<%= link_to 'Back', entidades_path %>

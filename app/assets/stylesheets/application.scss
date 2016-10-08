@@ -35,3 +35,17 @@ body {
 table thead th {
   text-align: center;
 }
+
+a, a:visited {
+  color: #000;
+}
+
+a:focus, a:hover {
+  background-color: transparent;
+  color: #000;
+}
+
+.btn:visited {
+  color: #fff;
+
+}
