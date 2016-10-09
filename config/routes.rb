@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'home/index'
+  get 'sobre', to: 'home#sobre'
 
   root to: "home#index"
 end
