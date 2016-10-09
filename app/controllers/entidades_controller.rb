@@ -1,5 +1,6 @@
 class EntidadesController < ApplicationController
   before_action :set_entidade, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   # GET /entidades
   # GET /entidades.json
