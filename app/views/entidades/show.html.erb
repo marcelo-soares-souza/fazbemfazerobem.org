@@ -1,19 +1,40 @@
-<p id="notice"><%= notice %></p>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Todas", entidades_path, :class => "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Cadastrar', new_entidade_path, :class => "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Detalhes #{@entidade.nome}", entidade_path(@entidade), :class => "nav-link active" %>
+  </li>
+</ul>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @entidade.nome %>
-</p>
+<br/>
 
-<p>
-  <strong>Cnpj:</strong>
-  <%= @entidade.cnpj %>
-</p>
+<div class="tab-content">
+  <div class="tab-pane active">
+    <dl class="row">
+      <dt class="col-sm-3"><strong>Nome:</strong></dt>
+      <dd class="col-sm-9"><%= @entidade.nome %>&nbsp;</dd>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @entidade.descricao %>
-</p>
+      <dt class="col-sm-3"><strong>Descrição:</strong></dt>
+      <dd class="col-sm-9"><%= @entidade.descricao %>&nbsp;</dd>
 
-<%= link_to 'Edit', edit_entidade_path(@entidade) %> |
-<%= link_to 'Back', entidades_path %>
+      <dt class="col-sm-3"><strong>CNPJ:</strong></dt>
+      <dd class="col-sm-9"><%= @entidade.cnpj %>&nbsp;</dd>
+
+    </dl>
+
+    <hr/>
+    <% if user_signed_in? %>
+      <% if current_user.admin? or current_user.id == @entidade.user_id %>
+        <div class="form-actions">
+          <%= link_to "Voltar", entidades_path, :class => 'btn btn-success'  %>
+          <%= link_to "Editar", edit_entidade_path(@entidade), :class => 'btn btn-warning' %>
+          <%= link_to "Apagar", entidade_path(@entidade), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) }, :class => 'btn btn-danger' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

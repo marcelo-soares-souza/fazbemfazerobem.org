@@ -28,9 +28,11 @@
           <td><%= entidade.user.nome %></td>
           <% if user_signed_in? %>
             <td>
-              <%= link_to 'Detalhes', entidade, :class => 'btn btn-mini btn-info' %>
-              <%= link_to 'Editar', edit_entidade_path(entidade), :class => 'btn btn-mini btn-warning' %>
-              <%= link_to 'Apagar', entidade, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-mini btn-danger' %>
+              <% if current_user.admin? or current_user.id == entidade.user_id %>
+                <%= link_to 'Detalhes', entidade, :class => 'btn btn-mini btn-info' %>
+                <%= link_to 'Editar', edit_entidade_path(entidade), :class => 'btn btn-mini btn-warning' %>
+                <%= link_to 'Apagar', entidade, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-mini btn-danger' %>
+              <% end %>
             </td>
           <% end %>
         </tr>
