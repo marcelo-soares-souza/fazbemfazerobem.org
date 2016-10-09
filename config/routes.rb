@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :projetos
-  resources :entidades
+  resources :entidades do
+    resources :projetos
+  end
+
   devise_for :users
   resources :users
 

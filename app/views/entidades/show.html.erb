@@ -24,6 +24,11 @@
       <dt class="col-sm-3"><strong>CNPJ:</strong></dt>
       <dd class="col-sm-9"><%= @entidade.cnpj %>&nbsp;</dd>
 
+      <dt class="col-sm-3"><strong>Projetos:</strong></dt>
+      <dd class="col-sm-9">
+        <%= @entidade.projetos.map {|projeto| link_to projeto.nome, projeto_path(projeto)}.join(", ").html_safe %>&nbsp;
+      </dd>
+
     </dl>
 
     <hr/>

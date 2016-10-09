@@ -23,7 +23,7 @@
         <% @projetos.each do |projeto| %>
         <tr>
           <td><%= link_to projeto.nome, projeto_path(projeto) %></td>
-          <td><%= projeto.entidade.nome %></td>
+          <td><%= link_to projeto.entidade.nome, entidade_url(projeto.entidade_id) %></td>
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? or current_user.id == projeto.entidade.user_id %>

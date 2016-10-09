@@ -18,14 +18,13 @@
     <br/><br/>
     <dl class="row">
       <dt class="col-sm-3"><strong>Entidade:</strong></dt>
-      <dd class="col-sm-9"><%= @projeto.entidade.nome %>&nbsp;</dd>
+      <dd class="col-sm-9"><%= link_to @projeto.entidade.nome, entidade_path(@projeto.entidade) %>&nbsp;</dd>
 
       <dt class="col-sm-3"><strong>Nome:</strong></dt>
       <dd class="col-sm-9"><%= @projeto.nome %>&nbsp;</dd>
 
       <dt class="col-sm-3"><strong>Descrição:</strong></dt>
       <dd class="col-sm-9"><%= @projeto.descricao %>&nbsp;</dd>
-
     </dl>
 
     <hr/>

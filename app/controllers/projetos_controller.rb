@@ -5,7 +5,11 @@ class ProjetosController < ApplicationController
   # GET /projetos
   # GET /projetos.json
   def index
-    @projetos = Projeto.all
+    if params[:entidade_id]
+      @projetos = Projeto.where(entidade_id: params[:entidade_id])
+    else
+      @projetos = Projeto.all
+    end
   end
 
   # GET /projetos/1
