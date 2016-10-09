@@ -20,10 +20,12 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = Projeto.new
+    @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
   end
 
   # GET /projetos/1/edit
   def edit
+    @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
   end
 
   # POST /projetos

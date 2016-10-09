@@ -3,9 +3,11 @@
   <li class="nav-item">
     <%= link_to "Todas", projetos_path, :class => "nav-link active" %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Cadastrar', new_projeto_path, :class => "nav-link" %>
-  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'Cadastrar', new_projeto_path, :class => "nav-link" %>
+    </li>
+  <% end %>
 </ul>
 
 <div class="tab-content">

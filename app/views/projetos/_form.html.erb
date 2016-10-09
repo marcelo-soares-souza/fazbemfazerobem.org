@@ -13,7 +13,7 @@
   <div class="form-group row">
     <%= f.label 'Entidade', class: "col-sm-2 col-form-label col-form-label-lg" %>
     <div class="col-sm-10">
-      <%= f.collection_select(:entidade_id, Entidade.all, :id, :nome, {}, { class: "form-control" } ) %>
+      <%= f.collection_select(:entidade_id, @entidades, :id, :nome, {}, { class: "form-control" } ) %>
     </div>
   </div>
 

@@ -2,9 +2,11 @@
   <li class="nav-item">
     <%= link_to "Todas", entidades_path, :class => "nav-link" %>
   </li>
-  <li class="nav-item">
-    <%= link_to 'Cadastrar', new_entidade_path, :class => "nav-link" %>
-  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'Cadastrar', new_entidade_path, :class => "nav-link" %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to "Detalhes #{@entidade.nome}", entidade_path(@entidade), :class => "nav-link active" %>
   </li>
