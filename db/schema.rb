@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009134607) do
+ActiveRecord::Schema.define(version: 20161010182250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20161009134607) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_entidades_on_user_id", using: :btree
+  end
+
+  create_table "pedidos", force: :cascade do |t|
+    t.integer  "projeto_id"
+    t.string   "tipo"
+    t.text     "descricao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["projeto_id"], name: "index_pedidos_on_projeto_id", using: :btree
   end
 
   create_table "projetos", force: :cascade do |t|
@@ -58,5 +67,6 @@ ActiveRecord::Schema.define(version: 20161009134607) do
   end
 
   add_foreign_key "entidades", "users"
+  add_foreign_key "pedidos", "projetos"
   add_foreign_key "projetos", "entidades"
 end

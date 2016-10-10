@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pedidos
   resources :projetos
   resources :entidades do
     resources :projetos

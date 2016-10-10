@@ -79,6 +79,7 @@ class ProjetosController < ApplicationController
     end
 
     def load_entidades
+      @entidades = {}
       if user_signed_in?
         @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
       end
