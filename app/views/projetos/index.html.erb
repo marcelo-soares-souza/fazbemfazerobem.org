@@ -31,9 +31,9 @@
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? or current_user.id == projeto.entidade.user_id %>
-                <%= link_to 'Detalhes', projeto, :class => 'btn btn-mini btn-info' %>
-                <%= link_to 'Editar', edit_projeto_path(projeto), :class => 'btn btn-mini btn-warning' %>
-                <%= link_to 'Apagar', projeto, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-mini btn-danger' %>
+                <%= link_to 'Detalhes', projeto, :class => 'btn btn-info btn-sm' %>
+                <%= link_to 'Editar', edit_projeto_path(projeto), :class => 'btn btn-warning btn-sm' %>
+                <%= link_to 'Apagar', projeto, method: :delete, data: { confirm: 'Você tem Certeza?' }, :class => 'btn btn-danger btn-sm' %>
               <% end %>
             </td>
           <% end %>
