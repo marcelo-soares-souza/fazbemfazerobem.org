@@ -27,6 +27,14 @@
 
       <dt class="col-sm-3"><strong>Descrição:</strong></dt>
       <dd class="col-sm-9"><%= @projeto.descricao %>&nbsp;</dd>
+
+      <% if ! @projeto.pedidos.empty? %>
+        <dt class="col-sm-3"><strong>Pedidos:</strong></dt>
+        <dd class="col-sm-9">
+          <%= @projeto.pedidos.map {|pedido| link_to pedido.tipo, pedido_path(pedido)}.join(", ").html_safe %>&nbsp;
+        </dd>
+      <% end %>
+
     </dl>
 
     <hr/>
