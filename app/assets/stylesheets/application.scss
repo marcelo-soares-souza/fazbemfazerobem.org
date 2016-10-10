@@ -34,6 +34,13 @@ body {
 
 table thead th {
   text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
 }
 
 a, a:visited {
@@ -82,4 +89,8 @@ p {
 
 .carousel-item a, .carousel-item a:visited, .carousel-item a:focus, .carousel-item  a:hover {
   color: #fff;
+}
+
+#login-logout {
+  float: right;
 }

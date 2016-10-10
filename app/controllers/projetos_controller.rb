@@ -1,7 +1,8 @@
 class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  
+  before_action :load_entidades
+
   # GET /projetos
   # GET /projetos.json
   def index
@@ -20,12 +21,10 @@ class ProjetosController < ApplicationController
   # GET /projetos/new
   def new
     @projeto = Projeto.new
-    @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
   end
 
   # GET /projetos/1/edit
   def edit
-    @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
   end
 
   # POST /projetos
@@ -77,5 +76,11 @@ class ProjetosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def projeto_params
       params.require(:projeto).permit(:nome, :descricao, :entidade_id, :imagem)
+    end
+
+    def load_entidades
+      if user_signed_in?
+        @entidades = current_user.admin ? Entidade.all : Entidade.where(user_id: current_user.id)
+      end
     end
 end

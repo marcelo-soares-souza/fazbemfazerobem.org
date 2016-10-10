@@ -15,6 +15,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th></th>
           <th>Nome</th>
           <th>Responsável</th>
           <% if user_signed_in? %> <th colspan="3"></th> <% end %>
@@ -24,6 +25,7 @@
       <tbody>
         <% @projetos.each do |projeto| %>
         <tr>
+          <td><%= link_to image_tag(projeto.imagem.url(:thumb)), projeto_path(projeto) %></td>
           <td><%= link_to projeto.nome, projeto_path(projeto) %></td>
           <td><%= link_to projeto.entidade.nome, entidade_url(projeto.entidade_id) %></td>
           <% if user_signed_in? %>
@@ -42,5 +44,9 @@
   </div>
 </div>
 <% else %>
-  <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_projeto_path %></h3>
+  <% if ! @entidades.empty? %>
+    <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_projeto_path %></h3>
+  <% else %>
+    <h3>Você precisa cadastrar pelo menos uma Entidade. <%= link_to 'Cadastrar?', new_entidade_path %></h3>
+  <% end %>
 <% end %>

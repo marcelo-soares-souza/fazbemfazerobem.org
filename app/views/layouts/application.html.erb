@@ -35,11 +35,11 @@
               <a class="nav-link" href="/users/">Usuários</a>
             </li>
           <% end %>
-          <li class="nav-item">
+          <li class="nav-item" id='login-logout'>
             <%= link_to('Sair (' + current_user.nome + ')', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
           </li>
           <% else %>
-            <li class="nav-item">
+            <li class="nav-item" id='login-logout'>
               <%= link_to('Entrar', new_user_session_path, :class => "nav-link") %>
             </li>
           <% end %>
