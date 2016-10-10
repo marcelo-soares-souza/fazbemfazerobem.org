@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Todas", pedidos_path, :class => "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Cadastrar', new_pedido_path, :class => "nav-link active" %>
+  </li>
+</ul>
+<br/>
+<%= render 'form', pedido: @pedido %>
