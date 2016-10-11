@@ -24,7 +24,7 @@
               <br/>
               <%= link_to truncate(projeto.descricao, :length => 32), projeto_path(projeto) %>
               <br/>
-              <%= link_to truncate("Entidade Beneficiada #{projeto.entidade.nome}", :length => 32), entidade_path(projeto.entidade) %>
+              <i><%= link_to truncate("Entidade Beneficiada #{projeto.entidade.nome}", :length => 32), entidade_path(projeto.entidade) %></i>
             </td>
           <% end %>
         </tr>

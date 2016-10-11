@@ -23,7 +23,7 @@
         <div class="carousel-caption">
           <a href="<%= projeto_url(projeto) %>">
             <h3><%= projeto.nome %></h3>
-            <p><%= projeto.descricao %></p>
+            <p><%= truncate(projeto.descricao, :length => 128) %></p>
           </a>
         </div>
       </div>

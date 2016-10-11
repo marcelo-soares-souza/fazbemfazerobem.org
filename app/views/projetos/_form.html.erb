@@ -1,7 +1,7 @@
 <%= form_for(projeto, html: { multipart: true }) do |f| %>
   <% if projeto.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(projeto.errors.count, "error") %> prohibited this projeto from being saved:</h2>
+      <h2><%= pluralize(projeto.errors.count, "error") %> encontrado(s):</h2>
 
       <ul>
       <% projeto.errors.full_messages.each do |message| %>
