@@ -30,7 +30,7 @@
           <td><%= link_to entidade.nome, entidade_path(entidade) %></td>
           <td><%= entidade.cnpj %></td>
           <td><%= entidade.user.nome %></td>
-          <td><%= link_to entidade.projetos.count, entidade_projetos_url(entidade.id) %></td>
+          <td><%= link_to entidade.projetos.count, entidade_projetos_url(entidade) %></td>
           <td><%= entidade.projetos.sum(&:pedidos).count %></td>
           <% if user_signed_in? %>
             <td>

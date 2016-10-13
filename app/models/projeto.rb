@@ -8,4 +8,7 @@ class Projeto < ApplicationRecord
   validates :nome, :presence => true, length: { minimum: 4 }
   validates :descricao, :presence => true, length: { minimum: 8 }
   validates :imagem, :presence => true
+
+  extend FriendlyId
+  friendly_id :nome, use: :slugged
 end

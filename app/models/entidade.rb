@@ -5,4 +5,7 @@ class Entidade < ApplicationRecord
 
   validates :nome, :presence => true, :uniqueness => { :case_sensitive => false }, length: { minimum: 4 }
   validates :cnpj, :presence => true, :uniqueness => { :case_sensitive => false }, length: { minimum: 8 }
+
+  extend FriendlyId
+  friendly_id :nome, use: :slugged
 end

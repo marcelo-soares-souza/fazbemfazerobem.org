@@ -7,7 +7,7 @@ class ProjetosController < ApplicationController
   # GET /projetos.json
   def index
     if params[:entidade_id]
-      @projetos = Projeto.where(entidade_id: params[:entidade_id])
+      @projetos = Entidade.friendly.find(params[:entidade_id]).projetos
     else
       @projetos = Projeto.all
     end
@@ -70,7 +70,7 @@ class ProjetosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_projeto
-      @projeto = Projeto.find(params[:id])
+      @projeto = Projeto.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
