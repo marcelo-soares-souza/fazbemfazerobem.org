@@ -76,7 +76,7 @@ class EntidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entidade_params
-      params.require(:entidade).permit(:nome, :cnpj, :descricao, :tipo_id)
+      params.require(:entidade).permit(:nome, :cnpj, :descricao, :tipo_id, :logradouro, :cidade, :estado, :cep, :latitude, :longitude)
     end
 
     def load_tipos
