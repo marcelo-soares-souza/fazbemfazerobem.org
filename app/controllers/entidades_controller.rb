@@ -35,7 +35,7 @@ class EntidadesController < ApplicationController
 
     respond_to do |format|
       if @entidade.save
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully created.' }
+        format.html { redirect_to @entidade, notice: 'Entidade foi adicionado(a) com sucesso.' }
         format.json { render :show, status: :created, location: @entidade }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class EntidadesController < ApplicationController
   def update
     respond_to do |format|
       if @entidade.update(entidade_params)
-        format.html { redirect_to @entidade, notice: 'Entidade was successfully updated.' }
+        format.html { redirect_to @entidade, notice: 'Entidade foi alterado(a) com sucesso.' }
         format.json { render :show, status: :ok, location: @entidade }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class EntidadesController < ApplicationController
   def destroy
     @entidade.destroy
     respond_to do |format|
-      format.html { redirect_to entidades_url, notice: 'Entidade was successfully destroyed.' }
+      format.html { redirect_to entidades_url, notice: 'Entidade foi removido(a) com sucesso.' }
       format.json { head :no_content }
     end
   end
