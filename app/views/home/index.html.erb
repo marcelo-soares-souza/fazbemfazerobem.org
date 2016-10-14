@@ -51,9 +51,9 @@
           <tr>
             <% p.each do |tipo| %>
               <td class="list">
-                <%= link_to image_tag(tipo.imagem.url(:medium), :width => "250"), tipo_path(tipo) %>
+                <%= link_to image_tag(tipo.imagem.url(:medium), :width => "250"), tipo_entidades_path(tipo) %>
                 <br/><br/>
-                <b><%= link_to tipo.nome, tipo_path(tipo) %></b>
+                <b><%= link_to tipo.nome, tipo_entidades_path(tipo) %></b>
                 <br/>
                 <%= link_to truncate(tipo.descricao, :length => 32), tipo_path(tipo) %>
               </td>

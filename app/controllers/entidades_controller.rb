@@ -6,7 +6,11 @@ class EntidadesController < ApplicationController
   # GET /entidades
   # GET /entidades.json
   def index
-    @entidades = Entidade.all
+    if params[:tipo_id]
+      @entidades = Tipo.friendly.find(params[:tipo_id]).entidades
+    else
+      @entidades = Entidade.all
+    end
   end
 
   # GET /entidades/1

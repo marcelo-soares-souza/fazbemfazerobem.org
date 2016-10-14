@@ -24,6 +24,13 @@
 
       <dt class="col-sm-3"><strong>Descrição:</strong></dt>
       <dd class="col-sm-9"><%= @tipo.descricao %>&nbsp;</dd>
+
+      <% if ! @tipo.entidades.empty? %>
+        <dt class="col-sm-3"><strong>Entidades:</strong></dt>
+        <dd class="col-sm-9">
+          <%= @tipo.entidades.map {|entidade| link_to entidade.nome, entidade_path(entidade)}.join(", ").html_safe %>&nbsp;
+        </dd>
+      <% end %>
     </dl>
 
     <hr/>
