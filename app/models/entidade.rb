@@ -20,9 +20,7 @@ class Entidade < ApplicationRecord
   extend FriendlyId
   friendly_id :nome, use: :slugged
 
-  protected
-
   def full_street_address
-    self.logradouro + ", " + self.cidade + ", " + self.estado + ", CEP " + self.cep
+    self.logradouro + ", " + self.cidade + ", " + self.estado + ", " + self.cep
   end
 end
