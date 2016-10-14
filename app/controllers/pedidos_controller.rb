@@ -2,6 +2,7 @@ class PedidosController < ApplicationController
   before_action :set_pedido, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_projetos, except: [:index]
+  before_action :load_tipos_ajuda
 
   # GET /pedidos
   # GET /pedidos.json
@@ -80,5 +81,9 @@ class PedidosController < ApplicationController
       if user_signed_in?
         @projetos = current_user.admin ? Projeto.all : Projeto.joins(:entidade).where("entidades.user_id = #{current_user.id}")
       end
+    end
+
+    def load_tipos_ajuda
+      @tipos_ajuda = { "Financeira" => "Ajuda Financeira" }
     end
 end

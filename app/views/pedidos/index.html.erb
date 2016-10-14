@@ -47,6 +47,6 @@
   <% if ! @projetos.empty? %>
     <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_pedido_path %></h3>
   <% else %>
-    <h3>Você precisa cadastrar pelo menos um Projeto. <%= link_to 'Cadastrar?', new_projeto_path %></h3>
+    <h3>Você precisa cadastrar pelo menos um Projeto. <%= link_to 'Cadastrar?', projetos_path %></h3>
   <% end %>
 <% end %>

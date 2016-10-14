@@ -50,5 +50,9 @@
   </div>
 </div>
 <% else %>
-  <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_entidade_path %></h3>
+  <% if ! @tipos.empty? %>
+    <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_entidade_path %></h3>
+  <% else %>
+    <h3>Nenhum Tipo Encontrado. <%= link_to 'Cadastrar?', tipos_path %></h3>
+  <% end %>
 <% end %>
