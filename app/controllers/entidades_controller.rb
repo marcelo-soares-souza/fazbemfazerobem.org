@@ -1,6 +1,7 @@
 class EntidadesController < ApplicationController
   before_action :set_entidade, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :load_tipos
 
   # GET /entidades
   # GET /entidades.json
@@ -71,6 +72,10 @@ class EntidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entidade_params
-      params.require(:entidade).permit(:nome, :cnpj, :descricao)
+      params.require(:entidade).permit(:nome, :cnpj, :descricao, :tipo_id)
+    end
+
+    def load_tipos
+      @tipos = Tipo.all
     end
 end

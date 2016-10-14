@@ -1,0 +1,38 @@
+<%= form_for(tipo, html: { multipart: true }) do |f| %>
+  <% if tipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo.errors.count, "error") %> encontrado(s):</h2>
+
+      <ul>
+      <% tipo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group row">
+    <%= f.label 'Nome', class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_field :nome, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label 'Descrição', class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.text_area :descricao, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label 'Imagem', class: "col-sm-2 col-form-label col-form-label-lg" %>
+    <div class="col-sm-10">
+      <%= f.file_field :imagem, class: "form-control" %>
+    </div>
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= f.submit "Enviar", class: "btn btn-primary" %>
+  </div>
+<% end %>

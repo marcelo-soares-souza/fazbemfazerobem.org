@@ -1,0 +1,36 @@
+<% if ! @tipos.empty? %>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to "Todas", tipos_path, :class => "nav-link active" %>
+  </li>
+  <% if user_signed_in? %>
+    <li class="nav-item">
+      <%= link_to 'Cadastrar', new_tipo_path, :class => "nav-link" %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active"><br/>
+    <table class="table">
+      <tbody>
+        <% @tipos.each_slice(3) do |p| %>
+        <tr>
+          <% p.each do |tipo| %>
+            <td class="list">
+              <%= link_to image_tag(tipo.imagem.url(:medium), :width => "250"), tipo_path(tipo) %>
+              <br/><br/>
+              <b><%= link_to tipo.nome, tipo_path(tipo) %></b>
+              <br/>
+              <%= link_to truncate(tipo.descricao, :length => 32), tipo_path(tipo) %>
+            </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% else %>  
+  <h3>Nenhum Registro Encontrado. <%= link_to 'Cadastrar?', new_tipo_path %></h3>
+<% end %>

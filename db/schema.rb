@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014143045) do
+ActiveRecord::Schema.define(version: 20161014161109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 20161014143045) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "slug"
+    t.integer  "tipo_id"
     t.index ["slug"], name: "index_entidades_on_slug", unique: true, using: :btree
+    t.index ["tipo_id"], name: "index_entidades_on_tipo_id", using: :btree
     t.index ["user_id"], name: "index_entidades_on_user_id", using: :btree
   end
 
@@ -65,6 +67,20 @@ ActiveRecord::Schema.define(version: 20161014143045) do
     t.index ["slug"], name: "index_projetos_on_slug", unique: true, using: :btree
   end
 
+  create_table "tipos", force: :cascade do |t|
+    t.string   "nome"
+    t.text     "descricao"
+    t.string   "slug"
+    t.integer  "user_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.index ["user_id"], name: "index_tipos_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -84,7 +100,9 @@ ActiveRecord::Schema.define(version: 20161014143045) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "entidades", "tipos"
   add_foreign_key "entidades", "users"
   add_foreign_key "pedidos", "projetos"
   add_foreign_key "projetos", "entidades"
+  add_foreign_key "tipos", "users"
 end

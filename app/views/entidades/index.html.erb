@@ -15,6 +15,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th>Tipo</th>
           <th>Nome</th>
           <th>CNPJ</th>
           <th>Responsável</th>
@@ -27,11 +28,12 @@
       <tbody>
         <% @entidades.each do |entidade| %>
         <tr>
+          <td><%= link_to image_tag(entidade.tipo.imagem.url(:thumb), :width => "64"), tipo_path(entidade.tipo) %></td>
           <td><%= link_to entidade.nome, entidade_path(entidade) %></td>
           <td><%= entidade.cnpj %></td>
           <td><%= entidade.user.nome %></td>
           <td><%= link_to entidade.projetos.count, entidade_projetos_url(entidade) %></td>
-          <td><%= entidade.projetos.sum(&:pedidos).count %></td>
+          <td><%= entidade.projetos.sum(&:pedidos).count if ! entidade.projetos.empty? %></td>
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? or current_user.id == entidade.user_id %>
