@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
 
   def check_if_owner(id)
     if signed_in?
-      if ! current_user.admin? and current_user.id != id.to_i
-        redirect_to root_url, alert: "Você não possui Permissão"
+      if ! current_user.admin? and current_user.slug != id
+        redirect_to root_url, alert: "Você não possui Permissão #{id}"
       end
     end
   end

@@ -10,4 +10,7 @@ class User < ApplicationRecord
 
   has_attached_file :imagem, styles: { medium: "200x200>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :imagem, content_type: /\Aimage\/.*\z/
+
+  extend FriendlyId
+  friendly_id :nome, use: :slugged
 end
