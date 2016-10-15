@@ -41,11 +41,11 @@
               <a class="nav-link" href="/users/">Usuários</a>
             </li>
           <% end %>
-          <li class="nav-item" id='login-logout'>
-            <%= link_to('Sair', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
+          <li class="nav-item" id='login-logout' style="vertical-align: text-top;">
+            <%= link_to(image_tag(current_user.imagem.url(:thumb), :size => "24x24", :alt => current_user.nome, :title => current_user.nome), user_path(current_user), :class => "nav-link") %>
           </li>
           <li class="nav-item" id='login-logout'>
-            <%= link_to(current_user.nome, user_path(current_user), :class => "nav-link") %>
+            <%= link_to('Sair', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
           </li>
           <% else %>
             <li class="nav-item" id='login-logout'>

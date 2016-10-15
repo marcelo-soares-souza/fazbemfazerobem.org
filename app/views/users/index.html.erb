@@ -9,6 +9,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th></th>
           <th>Nome</th>
           <th>E-Mail</th>
           <th colspan="3"></th>
@@ -18,6 +19,7 @@
       <tbody>
         <% @users.each do |user| %>
         <tr>
+          <td><%= image_tag(user.imagem.url(:thumb), :size => "100x100") %></td>
           <td><%= link_to user.nome, user_path(user) %></td>
           <td><%= user.email %></td>
           <td>

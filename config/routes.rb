@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  resources :users
+  resources :users, :path => :usuarios
 
   get 'home/index'
   get 'sobre', to: 'home#sobre'
