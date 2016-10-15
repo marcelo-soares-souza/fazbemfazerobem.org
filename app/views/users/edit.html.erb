@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <% if user_signed_in? %>
+    <% if current_user.admin %>
+      <li class="nav-item">
+        <%= link_to "Todos", users_path, :class => "nav-link" %>
+      </li>
+    <% end %>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to "Editando #{@user.nome}", edit_user_path(@user), :class => "nav-link active" %>
+  </li>
+</ul>
+<br/>
+<%= render 'form', user: @user %>

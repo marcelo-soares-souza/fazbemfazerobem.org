@@ -19,6 +19,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_if_owner(id)
+    if signed_in?
+      if ! current_user.admin? and current_user.id != id.to_i
+        redirect_to root_url, alert: "Você não possui Permissão"
+      end
+    end
+  end
+
   def set_locale
     I18n.default_locale = "pt-BR"
     I18n.locale = params[:locale] || I18n.default_locale
