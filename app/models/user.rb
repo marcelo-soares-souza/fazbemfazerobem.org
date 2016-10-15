@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :nome, :presence => true, :uniqueness => { :case_sensitive => false } 
+  validates :nome, :presence => true
 
   has_many :entidades
 
@@ -13,4 +13,8 @@ class User < ApplicationRecord
 
   extend FriendlyId
   friendly_id :nome, use: :slugged
+      
+  def should_generate_new_friendly_id?
+    nome_changed?
+  end
 end

@@ -24,6 +24,13 @@
       <dt class="col-sm-3"><strong>E-Mail:</strong></dt>
       <dd class="col-sm-9"><%= @user.email %>&nbsp;</dd>
 
+      <% if ! @user.entidades.empty? %>
+        <dt class="col-sm-3"><strong>Entidades:</strong></dt>
+        <dd class="col-sm-9">
+          <%= @user.entidades.map {|entidade| link_to entidade.nome, entidade_path(entidade)}.join(", ").html_safe %>&nbsp;
+        </dd>
+      <% end %>
+
       <% if user_signed_in? %>
         <% if current_user.admin? %>
           <dt class="col-sm-3"><strong>Administrador:</strong></dt>
