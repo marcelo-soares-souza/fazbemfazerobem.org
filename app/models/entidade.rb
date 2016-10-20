@@ -20,6 +20,10 @@ class Entidade < ApplicationRecord
   extend FriendlyId
   friendly_id :nome, use: :slugged
 
+  def should_generate_new_friendly_id?
+    nome_changed?
+  end
+
   def full_street_address
     self.logradouro + ", " + self.cidade + ", " + self.estado + ", " + self.cep
   end

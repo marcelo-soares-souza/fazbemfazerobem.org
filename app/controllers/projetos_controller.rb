@@ -2,6 +2,7 @@ class ProjetosController < ApplicationController
   before_action :set_projeto, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_entidades
+  before_action only: [:edit, :update, :destroy] { check_owner Projeto.friendly.find(params[:id]).entidade.user_id }
 
   # GET /projetos
   # GET /projetos.json

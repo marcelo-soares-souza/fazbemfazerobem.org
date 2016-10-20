@@ -3,6 +3,7 @@ class PedidosController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_projetos, except: [:index]
   before_action :load_tipos_ajuda
+  before_action only: [:edit, :update, :destroy] { check_owner Pedido.friendly.find(params[:id]).projeto.entidade.user_id }
 
   # GET /pedidos
   # GET /pedidos.json

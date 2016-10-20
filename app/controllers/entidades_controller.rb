@@ -2,6 +2,7 @@ class EntidadesController < ApplicationController
   before_action :set_entidade, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_tipos
+  before_action only: [:edit, :update, :destroy] { check_owner Entidade.friendly.find(params[:id]).user_id }
 
   # GET /entidades
   # GET /entidades.json
