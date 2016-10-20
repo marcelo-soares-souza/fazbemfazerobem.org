@@ -1,0 +1,1 @@
+json.partial! "apoiars/apoiar", apoiar: @apoiar

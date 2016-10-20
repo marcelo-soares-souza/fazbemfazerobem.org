@@ -1,0 +1,1 @@
+json.array! @apoiars, partial: 'apoiars/apoiar', as: :apoiar

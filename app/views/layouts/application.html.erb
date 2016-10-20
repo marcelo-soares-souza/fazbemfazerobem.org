@@ -24,15 +24,15 @@
           <a class="nav-link" href="/sobre">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/entidades">Entidades</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/projetos">Projetos</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/pedidos">Pedidos</a>
-        </li>
         <% if current_user %>
+          <li class="nav-item">
+            <a class="nav-link" href="/entidades">Entidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pedidos">Pedidos</a>
+          </li>
           <% if current_user.admin? %>
             <li class="nav-item">
               <a class="nav-link" href="/tipos/">Tipos</a>

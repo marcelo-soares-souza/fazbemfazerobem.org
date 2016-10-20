@@ -25,6 +25,10 @@
               <%= link_to truncate(projeto.descricao, :length => 32), projeto_path(projeto) %>
               <br/>
               <i><%= link_to truncate("Entidade Beneficiada #{projeto.entidade.nome}", :length => 32), entidade_path(projeto.entidade) %></i>
+              <br/><br/>
+              <% if ! projeto.pedidos.empty? %>
+                <%= link_to 'Apoiar', new_projeto_apoiar_url(projeto), :class => 'btn btn-success btn-sm' %>
+              <% end %>
             </td>
           <% end %>
         </tr>

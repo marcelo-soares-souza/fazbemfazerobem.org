@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015195550) do
+ActiveRecord::Schema.define(version: 20161020174736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apoiars", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pedido_id"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pedido_id"], name: "index_apoiars_on_pedido_id", using: :btree
+    t.index ["slug"], name: "index_apoiars_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_apoiars_on_user_id", using: :btree
+  end
 
   create_table "entidades", force: :cascade do |t|
     t.string   "nome"
@@ -112,6 +123,8 @@ ActiveRecord::Schema.define(version: 20161015195550) do
     t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
 
+  add_foreign_key "apoiars", "pedidos"
+  add_foreign_key "apoiars", "users"
   add_foreign_key "entidades", "tipos"
   add_foreign_key "entidades", "users"
   add_foreign_key "pedidos", "projetos"
