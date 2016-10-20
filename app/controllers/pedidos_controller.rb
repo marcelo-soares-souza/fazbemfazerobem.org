@@ -85,6 +85,6 @@ class PedidosController < ApplicationController
     end
 
     def load_tipos_ajuda
-      @tipos_ajuda = { "Financeira" => "Ajuda Financeira" }
+      @tipos_ajuda = { "Financeira" => "Ajuda Financeira", "Alimentos" => "Alimentos não perecíveis"  }
     end
 end

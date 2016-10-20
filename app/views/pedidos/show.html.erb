@@ -8,7 +8,7 @@
     </li>
   <% end %>
   <li class="nav-item">
-    <%= link_to "Detalhes #{@pedido.tipo}", pedido_path(@pedido), :class => "nav-link active" %>
+    <%= link_to "Detalhes #{@pedido.projeto.entidade.nome} #{@pedido.projeto.nome}", pedido_path(@pedido), :class => "nav-link active" %>
   </li>
 </ul>
 

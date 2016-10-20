@@ -18,6 +18,7 @@
           <th>Tipo</th>
           <th>Descrição</th>
           <th>Projeto</th>
+          <th>Entidade</th>
           <% if user_signed_in? %> <th colspan="3"></th> <% end %>
         </tr>
       </thead>
@@ -26,8 +27,9 @@
         <% @pedidos.each do |pedido| %>
         <tr>
           <td><%= link_to pedido.tipo, pedido_path(pedido) %></td>
-          <td><%= pedido.descricao %></td>
-          <td><%= link_to pedido.projeto.nome, projeto_url(pedido.projeto_id) %></td>
+          <td><%= link_to pedido.descricao, pedido_path(pedido) %></td>
+          <td><%= link_to pedido.projeto.nome, projeto_path(pedido.projeto) %></td>
+          <td><%= link_to pedido.projeto.entidade.nome, entidade_path(pedido.projeto.entidade) %></td>
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? or current_user.id == pedido.projeto.entidade.user_id %>
