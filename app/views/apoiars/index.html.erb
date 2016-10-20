@@ -29,7 +29,7 @@
           <td><%= link_to apoiar.pedido.tipo, apoiar_path(apoiar) %></td>
           <td><%= link_to apoiar.pedido.projeto.nome, projeto_path(apoiar.pedido.projeto) %></td>
           <td><%= link_to apoiar.pedido.projeto.entidade.nome, entidade_path(apoiar.pedido.projeto.entidade) %></td>
-          <td><%= link_to apoiar.user.nome, user_path(apoiar.user) %></td>
+          <td><%= link_to image_tag(apoiar.user.imagem.url(:thumb), :alt => apoiar.user.nome, :title => apoiar.user.nome, :width => "64"), user_path(apoiar.user) %></td>
           <% if user_signed_in? %>
             <td>
               <% if current_user.admin? or current_user.id == apoiar.user_id %>

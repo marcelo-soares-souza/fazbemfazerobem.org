@@ -33,7 +33,10 @@
           <li class="nav-item">
             <a class="nav-link" href="/pedidos">Pedidos</a>
           </li>
-          <% if current_user.admin? %>
+          <% if current_user.admin? %>           
+            <li class="nav-item">
+              <a class="nav-link" href="/apoiar/">Apoios</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/tipos/">Tipos</a>
             </li>

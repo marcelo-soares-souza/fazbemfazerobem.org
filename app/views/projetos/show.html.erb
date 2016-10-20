@@ -38,6 +38,11 @@
     </dl>
 
     <hr/>
+    <% if ! @projeto.pedidos.empty? %>
+      <%= link_to 'Apoiar', new_projeto_apoiar_url(@projeto), :class => 'btn btn-success btn-lg' %>
+    <% end %>
+
+    <hr/>
     <% if user_signed_in? %>
       <% if current_user.admin? or current_user.id == @projeto.entidade.user_id %>
         <div class="form-actions">
