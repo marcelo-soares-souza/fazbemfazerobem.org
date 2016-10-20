@@ -14,4 +14,8 @@ class Pedido < ApplicationRecord
   def nome_projeto
     self.projeto.entidade.nome.to_s + "-" + self.projeto.nome.to_s + "-" + self.id.to_s
   end
+
+  def apoiar
+    self.tipo + " do(a) " + self.projeto.entidade.nome + " do(a) " + self.projeto.nome
+  end
 end
