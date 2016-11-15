@@ -17,7 +17,6 @@
 
 @import "bootstrap";
 
-
 .doar
 {
   width: 200px;
@@ -184,4 +183,32 @@ p {
 .main-password {
   width: 400px;
   margin: auto;
+}
+
+.box {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  min-height: 300px;
+}
+
+.box-tipo {
+  margin-left: 45px;
+  margin-right: auto;
+  float: left;
+  width: 600px;
+  height: 300px;
+}
+.box-mapa {
+  height: 300px;
+}
+
+.box-mapa #map {
+  margin-top: 10px;
+  border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 280px;
 }

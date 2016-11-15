@@ -41,18 +41,17 @@
   </a>
   -->
 </div>
-
-  <hr/>
-
+<div class="box">
+<div class="box-tipo">
   <div class="tab-content">
     <div class="tab-pane active"><br/>
       <table class="table">
         <tbody>
-          <% @tipos.each_slice(3) do |p| %>
+          <% @tipos.each_slice(2) do |p| %>
           <tr>
             <% p.each do |tipo| %>
               <td class="list">
-                <%= link_to image_tag(tipo.imagem.url(:medium), :width => "250"), tipo_entidades_path(tipo) %>
+                <%= link_to image_tag(tipo.imagem.url(:medium), :width => "64"), tipo_entidades_path(tipo) %>
                 <br/><br/>
                 <b><%= link_to tipo.nome, tipo_entidades_path(tipo) %></b>
                 <br/>
@@ -65,4 +64,9 @@
       </table>
     </div>
   </div>
+</div>
+<div class="box-mapa">
+  <%= map(:center  => { :latlng => [-15.77835833463309, -47.88219451904297], :zoom => 5}) %>
+</div>
+</div>
 <% end %>
