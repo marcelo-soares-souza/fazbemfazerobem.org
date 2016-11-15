@@ -16,48 +16,78 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-      <a class="navbar-brand" href="/">Início</a>
+    <nav class="navbar navbar-fixed-top navbar-dark navbar-topo">
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/sobre">Sobre</a>
-        </li>
+          <%= link_to "Quem somos?", sobre_url, :style => "font-style: italic; font-weight: bold;" %>
         <li class="nav-item">
-          <a class="nav-link" href="/projetos">Projetos</a>
+          <%= link_to image_tag("fb.png", size: "16x16"), image_path("fb.png") %>
+          &nbsp;
+          <%= link_to image_tag("twitter.png", size: "16x16"), image_path("fb.png") %>
+          &nbsp;
+          <%= link_to image_tag("youtube.png", size: "16x16"), image_path("fb.png") %>
         </li>
         <% if current_user %>
-          <li class="nav-item">
-            <a class="nav-link" href="/entidades">Entidades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/pedidos">Pedidos</a>
-          </li>
-          <% if current_user.admin? %>           
-            <li class="nav-item">
-              <a class="nav-link" href="/apoiar/">Apoios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/tipos/">Tipos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/usuarios/">Usuários</a>
-            </li>
-          <% end %>
-          <li class="nav-item" id='login-logout' style="vertical-align: text-top;">
-            <%= link_to(image_tag(current_user.imagem.url(:thumb), :size => "24x24", :alt => current_user.nome, :title => current_user.nome), user_path(current_user), :class => "nav-link") %>
-          </li>
           <li class="nav-item" id='login-logout'>
             <%= link_to('Sair', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
           </li>
-          <% else %>
-            <li class="nav-item" id='login-logout'>
-              <%= link_to('Entrar', new_user_session_path, :class => "nav-link") %>
-            </li>
-          <% end %>
+        <% end %>
+
       </ul>
     </nav>
 
+    <div class="main-info">
+      <div class="main-logo">
+        <%= link_to image_tag("logo.png"), image_path("logo.png") %>
+      </div>
+
+      <div class="main-login">
+        <% if ! current_user %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="main-user">
+            <%= f.label "Usuário", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
+            <br/>
+            <div>
+              <%= f.email_field :email, :placeholder => "E-Mail", autofocus: true, :style => "border: 0px; border-bottom: 1px solid #229BFD;" %>
+            </div>
+          </div>
+
+          <div class="main-password">
+            <%= f.label "Senha", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
+            <br/>
+            <%= f.password_field :password, :placeholder => "Senha", autocomplete: "off", :style => "border: 0px; border-bottom: 1px solid #229BFD;"   %>
+          </div>
+          <br/>
+          <div class="actions">
+            <%= f.submit "Doar", class: "btn btn-warning doar" %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-meio">
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          <%= link_to "Porquê", "#" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Como", "#" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Instituições", entidades_url %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Doadores", "#" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Parceiros", "#" %>
+        </li>
+      </ul>
+    </nav>    
     <div class="container">
       <div class="starter-template">
         <% if notice %>

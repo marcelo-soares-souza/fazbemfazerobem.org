@@ -17,6 +17,41 @@
 
 @import "bootstrap";
 
+
+.doar
+{
+  width: 200px;
+
+  font-weight: bold;
+}
+.navbar, .navbar a {
+  color: #B8B8B8 !important;
+}
+
+.navbar-topo {
+    background-color: #F5F5F5 !important;
+    min-height: 42px;
+    border-bottom: 1.5px solid #CFD3DA !important;
+}
+
+.navbar-meio {
+    background-color: #DAE8FC !important;
+    min-height: 52px;
+}
+
+.navbar-meio .nav-item {
+  width: 160px;
+  margin: 12px 64px 0px 16px;
+  border-bottom: 2px solid #CBDCF3;
+}
+
+.navbar-meio .nav-item a {
+  color: #7e7f82 !important;
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 body {
   padding-top: 5rem;
 }
@@ -29,9 +64,7 @@ body {
 .container {
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    max-width: 1180px;
+    width: 100%;
 }
 
 table thead th {
@@ -71,7 +104,7 @@ p {
 .carousel-inner{
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 1024px;
   max-height: 355px !important;
 }
 
@@ -98,10 +131,10 @@ p {
 }
 
 .error {
-  border-color: red; 
+  border-color: red;
 }
 
-.list:hover img { 
+.list:hover img {
     -webkit-transform:scale(1.1);
     -moz-transform:scale(1.1);
     -ms-transform:scale(1.1);
@@ -121,4 +154,34 @@ p {
   text-align: center;
   width: 930px;
   height: 300px;
+}
+
+.main-info {
+  margin-top: -24px;
+  margin-bottom: 16px;
+  min-height: 160px;
+}
+
+.main-logo {
+  margin-left: 58px;
+  min-height: 160px;
+  min-width: 320px;
+  float: left;
+}
+
+.main-login {
+  float: right;
+  width: 800px;
+  min-height: 160px;
+}
+
+.main-user {
+  width: 250px;
+  float: left;
+  height: 160px;
+}
+
+.main-password {
+  width: 400px;
+  margin: auto;
 }
