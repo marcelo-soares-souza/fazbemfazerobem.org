@@ -6,4 +6,16 @@ class HomeController < ApplicationController
 
   def sobre
   end
+
+  def porque
+  end
+
+  def como
+  end
+
+  def doadores
+  end
+
+  def parceiros
+  end
 end

@@ -1,0 +1,30 @@
+    <div class="main-info">
+      <div class="main-logo">
+        <%= link_to image_tag("logo.png"), root_url %>
+      </div>
+
+      <div class="main-login">
+        <% if ! current_user %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="main-user">
+              <%= f.label "Usuário", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
+              <br/>
+              <div>
+                <%= f.email_field :email, :placeholder => "E-Mail", autofocus: true, :style => "border: 0px; border-bottom: 1px solid #229BFD;" %>
+              </div>
+            </div>
+
+            <div class="main-password">
+              <%= f.label "Senha", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
+              <br/>
+              <%= f.password_field :password, :placeholder => "Senha", autocomplete: "off", :style => "border: 0px; border-bottom: 1px solid #229BFD;"   %>
+            </div>
+
+            <br/>
+            <div class="actions">
+              <%= f.submit "Doar", class: "btn btn-warning doar" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>

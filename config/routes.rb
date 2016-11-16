@@ -20,6 +20,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'sobre', to: 'home#sobre'
+  get 'porque', to: 'home#porque'
+  get 'como', to: 'home#como'
+  get 'doadores', to: 'home#doadores'
+  get 'parceiros', to: 'home#parceiros'
 
   root to: "home#index"
 end

@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="icon" href="favicon.ico"> -->
-
     <title>Faz Bem Fazer o Bem</title>
 
     <%= csrf_meta_tags %>
@@ -16,122 +14,17 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top navbar-dark navbar-topo">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Quem somos?", sobre_url, :style => "font-style: italic; font-weight: bold;" %>
-        <li class="nav-item">
-          <%= link_to image_tag("fb.png", size: "16x16"), image_path("fb.png") %>
-          &nbsp;
-          <%= link_to image_tag("twitter.png", size: "16x16"), image_path("fb.png") %>
-          &nbsp;
-          <%= link_to image_tag("youtube.png", size: "16x16"), image_path("fb.png") %>
-        </li>
-        <% if current_user %>
-          <li class="nav-item" id='login-logout'>
-            <%= link_to('Sair', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
-          </li>
-        <% end %>
+    <%= render "layouts/navbar_topo" %>
+    <%= render "layouts/logo" %>
+    <%= render "layouts/menu" %>
 
-      </ul>
-    </nav>
-
-    <div class="main-info">
-      <div class="main-logo">
-        <%= link_to image_tag("logo.png"), image_path("logo.png") %>
-      </div>
-
-      <div class="main-login">
-        <% if ! current_user %>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="main-user">
-            <%= f.label "Usuário", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
-            <br/>
-            <div>
-              <%= f.email_field :email, :placeholder => "E-Mail", autofocus: true, :style => "border: 0px; border-bottom: 1px solid #229BFD;" %>
-            </div>
-          </div>
-
-          <div class="main-password">
-            <%= f.label "Senha", :style => "font-size: 11px; font-weight: bold; color: #93CEFE;" %>
-            <br/>
-            <%= f.password_field :password, :placeholder => "Senha", autocomplete: "off", :style => "border: 0px; border-bottom: 1px solid #229BFD;"   %>
-          </div>
-          <br/>
-          <div class="actions">
-            <%= f.submit "Doar", class: "btn btn-warning doar" %>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <nav class="navbar navbar-meio">
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Porquê", "#" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Como", "#" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Instituições", entidades_url %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Doadores", "#" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "Parceiros", "#" %>
-        </li>
-      </ul>
-    </nav>
     <br/>
-    <div class="container">
-      <div class="starter-template">
-        <% if notice %>
-          <div class="alert alert-info alert-dismissible fade in" role="alert">
-            <%= notice %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <% end %>
 
-        <% if alert %>
-          <div class="alert alert-warning alert-dismissible fade in" role="alert">
-            <%= alert %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <% end %>
+    <%= render "layouts/content" %>
 
-        <%= yield %>
-      </div>
-    </div><!-- /.container -->
+    <br/>
 
-    <div class="footer">
-      <div class="footer-texto">
-        <b>Alguma Dúvida?</b>
-        <br/>
-        <h2>Fale Conosco:</h2>
-      </div>
-      <div class="footer-links">
-        <br/>
-        <a class="btn btn-primary" style="width: 150px;" href="#" role="button"><%= fa_icon "envelope" %>&nbsp;</span>E-Mail</a>
-        <a class="btn btn-warning" style="width: 150px;" href="#" role="button"><%= fa_icon "phone" %>&nbsp;Telefone</a>
-      </div>
-    </div>
+    <%= render "layouts/footer" %>
 
-    <script>
-      $(document).ready(function() {
-        $(".alert").fadeTo(2000, 500).slideUp(500, function(){
-          $(".alert").slideUp(500);
-        });
-      });
-    </script>
   </body>
 </html>
