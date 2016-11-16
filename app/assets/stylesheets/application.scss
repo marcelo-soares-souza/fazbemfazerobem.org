@@ -16,6 +16,26 @@
  */
 
 @import "bootstrap";
+@import "font-awesome";
+
+.footer {
+  background-color: #DAE8FC !important;
+  min-height: 96px;
+  padding-top: 16px;
+  padding-left: 128px;
+
+}
+
+.footer-texto {
+  margin-right: auto;
+  float: left;
+  width: 256px;
+
+}
+
+.footer-links {
+  margin-left: 512px;
+}
 
 .doar
 {
