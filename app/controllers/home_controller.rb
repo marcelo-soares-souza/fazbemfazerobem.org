@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @entidades = Entidade.all
     @projetos = Projeto.all
     @tipos = Tipo.all
   end

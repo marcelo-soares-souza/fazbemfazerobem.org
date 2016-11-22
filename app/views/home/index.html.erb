@@ -42,31 +42,30 @@
   -->
 </div>
 <div class="box">
-<div class="box-tipo">
-  <div class="tab-content">
-    <div class="tab-pane active"><br/>
-      <table class="table">
-        <tbody>
-          <% @tipos.each_slice(2) do |p| %>
-          <tr>
-            <% p.each do |tipo| %>
-              <td class="list">
-                <%= link_to image_tag(tipo.imagem.url(:medium), :width => "64"), tipo_entidades_path(tipo) %>
-                <br/><br/>
-                <b><%= link_to tipo.nome, tipo_entidades_path(tipo) %></b>
-                <br/>
-                <%= link_to truncate(tipo.descricao, :length => 32), tipo_path(tipo) %>
-              </td>
+  <div class="box-tipo">
+    <div class="tab-content">
+      <div class="tab-pane active"><br/>
+        <table class="table">
+          <tbody>
+            <% @tipos.each_slice(2) do |p| %>
+            <tr>
+              <% p.each do |tipo| %>
+                <td class="list">
+                  <%= link_to image_tag(tipo.imagem.url(:medium), :width => "64"), tipo_entidades_path(tipo) %>
+                  <br/><br/>
+                  <b><%= link_to tipo.nome, tipo_entidades_path(tipo) %></b>
+                  <br/>
+                  <%= link_to truncate(tipo.descricao, :length => 32), tipo_path(tipo) %>
+                </td>
+              <% end %>
+            </tr>
             <% end %>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<div class="box-mapa">
-  <%= map(:center  => { :latlng => [-15.77835833463309, -47.88219451904297], :zoom => 5}) %>
-</div>
+
+  <%= render "home/mapa" %>
 </div>
 <% end %>

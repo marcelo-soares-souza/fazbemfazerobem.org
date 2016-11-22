@@ -1,0 +1,23 @@
+<div id="map"></div>
+<script>
+  $( document ).ready(function() {
+
+    var map = L.map('map', {zoomControl: false}).setView([-15.77835833463309, -47.88219451904297], 4);
+    var markers = new Array();
+
+    L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'OpenStreetMap', maxZoom: 18,}).addTo(map);
+
+    L.control.zoom({position:'topright'}).addTo(map);
+
+    <% if @entidades %>
+      <% @entidades.each do |entidade| %>
+        <% if entidade.latitude and entidade.longitude %>
+          markers["<%= entidade.slug %>"] = L.marker([<%= entidade.latitude %>, <%= entidade.longitude %>]);
+          markers["<%= entidade.slug %>"].bindPopup('<b><%= link_to entidade.nome, entidade_path(entidade) %></b>');
+          markers["<%= entidade.slug %>"].addTo(map);
+        <% end %>
+      <% end %>
+    <% end %>
+  });
+</script>
+

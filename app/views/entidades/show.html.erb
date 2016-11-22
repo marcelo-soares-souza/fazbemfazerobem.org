@@ -17,7 +17,17 @@
 <div class="tab-content">
   <div class="tab-pane active">
     <% if @entidade.latitude and @entidade.longitude %>
-      <%= map(:center  => { :latlng => [@entidade.latitude, @entidade.longitude], :zoom => 18}, :markers => [ { :latlng => [@entidade.latitude, @entidade.longitude], :popup => @entidade.full_street_address } ]) %>
+      <div id="map"></div>
+
+      <script>
+        $( document ).ready(function() {
+          var map = L.map('map', {zoomControl: false}).setView([<%= @entidade.latitude %>, <%= @entidade.longitude %>], 16);
+          var marker = new Array();
+          L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'Faz Bem Fazer o Bem | OpenStreetMap', maxZoom: 18,}).addTo(map);
+          L.control.zoom({position:'topright'}).addTo(map);
+          L.marker([<%= @entidade.latitude %>, <%= @entidade.longitude %>]).bindPopup('<b><%= link_to @entidade.nome, entidade_path(@entidade) %></b>').addTo(map);
+        });
+      </script>
     <% end %>
 
     <br/>
