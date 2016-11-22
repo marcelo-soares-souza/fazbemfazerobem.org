@@ -71,7 +71,7 @@
 }
 
 .navbar-meio .nav-item {
-  width: 160px;
+  width: 150px;
   margin: 12px 64px 0px 16px;
   border-bottom: 2px solid #CBDCF3;
 }
@@ -218,6 +218,8 @@ p {
 }
 
 .box {
+  align-items: center;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
@@ -229,7 +231,7 @@ p {
   margin-left: 45px;
   margin-right: auto;
   float: left;
-  width: 600px;
+  width: 550px;
   height: 300px;
 }
 
