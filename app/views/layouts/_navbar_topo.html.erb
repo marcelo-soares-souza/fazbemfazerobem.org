@@ -4,11 +4,9 @@
           <%= link_to "Quem somos?", sobre_url, :style => "font-style: italic; font-weight: bold;" %>
 
         <li class="nav-item">
-          <%= link_to image_tag("fb.png", size: "16x16"), image_path("fb.png") %>
+          <%= link_to image_tag("fb.png", size: "16x16"), "https://www.facebook.com/fazbemfazerobemoficial", :target => "_blank" %>
           &nbsp;
-          <%= link_to image_tag("twitter.png", size: "16x16"), image_path("fb.png") %>
-          &nbsp;
-          <%= link_to image_tag("youtube.png", size: "16x16"), image_path("fb.png") %>
+          <%= link_to image_tag("twitter.png", size: "16x16"), "https://twitter.com/fazerobem_tw", :target => "_blank" %>
         </li>
 
         <% if current_user %>
@@ -16,6 +14,9 @@
             <%= link_to('Sair', destroy_user_session_path, :method => :delete, :class => "nav-link") %>
           </li>
         <% end %>
-
       </ul>
     </nav>
+
+    <div class="alerta" role="alert">
+      <center>Este é apenas um Protótipo em Desenvolvimento. Gostaria de nos ajudar? Contribua com o <a href="https://www.catarse.me/pt/fazbem_fazerobem" target="_blank">Financiamento Coletivo no Catarse</a></center>
+    </div>
