@@ -8,11 +8,13 @@
     L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: 'OpenStreetMap', maxZoom: 18,}).addTo(map);
 
     L.control.zoom({position:'topright'}).addTo(map);
+    var icons = L.icon({iconUrl: "<%= asset_path 'marker-icon.png' %>", iconRetinaUrl: "<%= asset_path 'marker-icon-2x.png' %>", shadowUrl: "<%= asset_path 'marker-shadow.png' %>",
+                        iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41]});
 
     <% if @entidades %>
       <% @entidades.each do |entidade| %>
         <% if entidade.latitude and entidade.longitude %>
-          markers["<%= entidade.slug %>"] = L.marker([<%= entidade.latitude %>, <%= entidade.longitude %>]);
+          markers["<%= entidade.slug %>"] = L.marker([<%= entidade.latitude %>, <%= entidade.longitude %>], {icon: icons});
           markers["<%= entidade.slug %>"].bindPopup('<b><%= link_to entidade.nome, entidade_path(entidade) %></b>');
           markers["<%= entidade.slug %>"].addTo(map);
         <% end %>
