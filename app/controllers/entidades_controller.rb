@@ -2,6 +2,7 @@ class EntidadesController < ApplicationController
   before_action :set_entidade, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_tipos
+  before_action :load_uf
   before_action only: [:edit, :update, :destroy] { check_owner Entidade.friendly.find(params[:id]).user_id }
 
   # GET /entidades
@@ -82,5 +83,9 @@ class EntidadesController < ApplicationController
 
     def load_tipos
       @tipos = Tipo.all
+    end
+
+    def load_uf 
+      @ufs = { "Acre" => "AC", "Alagoas" => "AL", "Amapá" => "AP", "Amazonas" => "AM", "Bahia" => "BA", "Ceará" => "CE", "Distrito Federal" => "DF", "Espírito Santo" => "ES", "Goiás" => "GO", "Maranhão" => "MA", "Mato Grosso" => "MT", "Mato Grosso do Sul" => "MS", "Minas Gerais" => "MG", "Pará" => "PA", "Paraíba" => "PB", "Paraná" => "PR", "Pernambuco" => "PE", "Piauí" => "PI", "Rio de Janeiro" => "RJ", "Rio Grande do Norte" => "RN", "Rio Grande do Sul" => "RS", "Rondônia" => "RO", "Roraima" => "RR", "Santa Catarina" => "SC", "São Paulo" => "SP", "Sergipe" => "SE", "Tocantins" => "TO" }
     end
 end
