@@ -17,6 +17,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  padding-top: 5rem;
+}
+
 .alerta {
   font-weight: bold;
   background-color: #f2dede;
@@ -26,6 +30,7 @@
   margin-bottom: 32px;
 
 }
+
 .footer {
   background-color: #DAE8FC !important;
   width: 100%;
@@ -46,7 +51,6 @@
 }
 
 .footer-links {
-  margin-left: 512px;
 }
 
 .doar
@@ -55,6 +59,7 @@
 
   font-weight: bold;
 }
+
 .navbar, .navbar a {
   color: #B8B8B8 !important;
 }
@@ -65,13 +70,19 @@
     border-bottom: 1.5px solid #CFD3DA !important;
 }
 
+.navbar {
+    min-height: 52px !important;
+    max-height: 52px !important;
+
+}
 .navbar-meio {
     background-color: #DAE8FC !important;
-    min-height: 52px;
+    min-height: 52px !important;
+    max-height: 52px !important;
 }
 
 .navbar-meio .nav-item {
-  width: 150px;
+  width: 10%;
   margin: 12px 64px 0px 16px;
   border-bottom: 2px solid #CBDCF3;
 }
@@ -81,10 +92,6 @@
   text-align: left;
   margin-top: 10px;
   font-weight: bold;
-}
-
-body {
-  padding-top: 5rem;
 }
 
 .starter-template {
@@ -135,7 +142,6 @@ p {
 .carousel-inner{
   margin-left: auto;
   margin-right: auto;
-  width: 1024px;
   max-height: 355px !important;
 }
 
@@ -183,27 +189,25 @@ p {
   margin-right: auto;
   vertical-align: middle;
   text-align: center;
-  width: 930px;
   height: 300px;
 }
 
 .main-info {
-  margin-top: -24px;
   margin-bottom: 16px;
-  min-height: 160px;
+  min-height: 160px !important;
 }
 
 .main-logo {
   margin-left: 64px;
-  min-height: 160px;
-  min-width: 320px;
+  width: 320px;
+  min-height: 160px !important;
   float: left;
 }
 
 .main-login {
   float: right;
   width: 630px;
-  min-height: 160px;
+  min-height: 160px !important;
 }
 
 .main-user {
@@ -219,7 +223,6 @@ p {
 
 .box {
   align-items: center;
-  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
