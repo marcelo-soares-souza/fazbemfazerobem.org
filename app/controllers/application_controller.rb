@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  before_action :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :apoiar, unless: :devise_controller?
   helper_method :resource_name, :resource, :devise_mapping
 
   def resource_name
@@ -13,9 +17,12 @@ class ApplicationController < ActionController::Base
     @devise_mapping ||= Devise.mappings[:user]
   end
   
-  protect_from_forgery with: :exception
-  before_action :set_locale
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  def apoiar
+    if signed_in?
+      @user_entidades = User.friendly.find(current_user.slug).entidades
+      @user_apoiados = User.friendly.find(current_user.slug).apoiars
+    end
+  end
 
   protected
 

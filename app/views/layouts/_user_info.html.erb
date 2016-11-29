@@ -1,0 +1,7 @@
+<center>
+  <%= link_to image_tag(current_user.imagem(:thumb), :size => "64x64") + " " + current_user.nome, user_path(current_user) %>
+  <br/><br/>
+  <b>Entidades Cadastradas:</b> <%= @user_entidades.count %>
+  <br/>
+  <b>Projeto Apoiados:</b> <%= @user_apoiados.count %>
+</center>
