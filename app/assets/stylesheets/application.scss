@@ -259,3 +259,20 @@ p {
   width: 600px;
   height: 300px;
 }
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.img-center[_ngcontent-lul-31] {
+    margin: 0 auto;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+    height: auto;
+    max-width: 100%;
+}
