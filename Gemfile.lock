@@ -39,7 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.5.3.1)
+    autoprefixer-rails (6.5.4)
       execjs
     bcrypt (3.1.11)
     bootstrap (4.0.0.alpha5)
@@ -69,7 +69,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
-    font-awesome-rails (4.7.0.0)
+    font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
