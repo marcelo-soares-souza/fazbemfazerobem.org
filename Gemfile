@@ -25,7 +25,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pg'
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '= 4.0.0.alpha5'
 gem 'devise'
 gem 'paperclip'
 gem 'friendly_id', '~> 5.1.0'
