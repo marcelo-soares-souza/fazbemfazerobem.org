@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  protect_from_forgery with: :exception
+
   def index
     @entidades = Entidade.all
     @projetos = Projeto.all

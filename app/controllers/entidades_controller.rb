@@ -1,4 +1,5 @@
 class EntidadesController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_entidade, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_tipos

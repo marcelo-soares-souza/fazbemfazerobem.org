@@ -1,4 +1,5 @@
 class PedidosController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_pedido, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :load_projetos, except: [:index]

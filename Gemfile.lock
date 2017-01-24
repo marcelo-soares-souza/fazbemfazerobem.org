@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/puma/puma.git
-  revision: 7dfc50a434c50051ac322813e4b10c4d41520de9
+  revision: 9c089f10164f562f655ecf8375fb34d3203b9e70
   specs:
     puma (3.7.0)
 
@@ -45,13 +45,13 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.6.1)
+    autoprefixer-rails (6.7.0)
       execjs
     bcrypt (3.1.11)
     bootstrap (4.0.0.alpha5)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
-    builder (3.2.2)
+    builder (3.2.3)
     byebug (9.0.6)
     climate_control (0.1.0)
     cocaine (0.5.8)
@@ -73,7 +73,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.14)
+    ffi (1.9.17)
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
@@ -156,7 +156,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    spring (2.0.0)
+    spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -188,7 +188,7 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
-    websocket-driver (0.6.4)
+    websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
 

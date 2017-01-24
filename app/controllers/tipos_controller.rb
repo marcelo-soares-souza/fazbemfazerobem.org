@@ -1,4 +1,5 @@
 class TiposController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_tipo, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :check_if_admin
